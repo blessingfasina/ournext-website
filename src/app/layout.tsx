@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SkipLink } from "@/components/SkipLink";
 import "./globals.css";
 import "./site.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ournext.uk"),
@@ -34,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en-GB" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={GeistSans.className}>
         <SkipLink />
         {children}
         <SiteFooter />
