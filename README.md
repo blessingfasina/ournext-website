@@ -1,45 +1,38 @@
 # OurNext website
 
-Static marketing + legal site in the Quiet Grid look. Hosted separately from
-the Flutter app — push this folder to GitHub and deploy on Vercel.
+Next.js (TypeScript) marketing + legal site in the Quiet Grid look.
+
+**GitHub:** https://github.com/blessingfasina/ournext-website
 
 ## Pages
 
-| URL | File |
+| Route | Purpose |
 |---|---|
-| `/` | `index.html` |
-| `/privacy/` | `privacy/index.html` |
-| `/terms/` | `terms/index.html` |
-| `/support/` | `support/index.html` |
+| `/` | Landing |
+| `/privacy` | Privacy notice |
+| `/terms` | Terms of use |
+| `/support` | Store support URL |
 
-## Deploy on Vercel
-
-1. Push the `ournext` repo (or a repo that contains this `website/` folder) to GitHub.
-2. In Vercel → **Add New Project** → import that repo.
-3. Set **Root Directory** to `website`.
-4. Framework preset: **Other** (static). No build command needed.
-5. Deploy. Point your custom domain (e.g. `ournext.uk`) at the project.
-
-Local preview:
+## Local
 
 ```bash
 cd website
-npx --yes serve .
+npm install
+npm run dev
 ```
 
-## Wire the app
+## Deploy on Vercel
 
-After the site is live HTTPS:
+1. Import https://github.com/blessingfasina/ournext-website
+2. Framework: Next.js (auto-detected)
+3. Build command: `npm run build` · Output: default
+4. Point `ournext.uk` at the project
+
+Then set in the app:
 
 ```json
-"OURNEXT_PRIVACY_URL": "https://ournext.uk/privacy/",
-"OURNEXT_TERMS_URL": "https://ournext.uk/terms/"
+"OURNEXT_PRIVACY_URL": "https://ournext.uk/privacy",
+"OURNEXT_TERMS_URL": "https://ournext.uk/terms"
 ```
 
-Store listing **Support URL**: `https://ournext.uk/support/`
-
-## Design
-
-Geist + Quiet Grid tokens from the mobile app: paper background, ink type,
-coloured object tiles on a soft stage / dot grid. Hero is brand-first with one
-lead line and two CTAs.
+Support URL for stores: `https://ournext.uk/support`
