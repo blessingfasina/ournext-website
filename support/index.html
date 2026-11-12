@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support — OurNext</title>
+    <meta
+      name="description"
+      content="Help, downloads and contact for the OurNext app."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/assets/app-icon.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header" data-site-header>
+      <div class="site-header__inner">
+        <a class="brand" href="/">
+          <img class="brand__mark" src="/assets/app-icon.png" width="28" height="28" alt="" />
+          OurNext
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/#how">How it works</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a class="nav-priority" href="/support/" aria-current="page">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <header class="page-hero">
+        <h1>Support</h1>
+        <p class="meta">Help for the OurNext app</p>
+      </header>
+
+      <article class="prose">
+        <h2>Get the app</h2>
+        <p>
+          Store links will sit here once TestFlight and Google Play internal
+          tracks are live. Until then, use the builds from your development
+          team.
+        </p>
+        <div class="cta-row" style="margin: 1rem 0 0">
+          <span class="btn btn-secondary" aria-disabled="true">App Store — soon</span>
+          <span class="btn btn-secondary" aria-disabled="true">Google Play — soon</span>
+        </div>
+
+        <h2>Account</h2>
+        <p>
+          In the app, open <strong>Account</strong> to export your data, delete
+          your account, or open this privacy notice and these terms.
+        </p>
+
+        <h2>Invitations</h2>
+        <p>
+          If someone invited you by email, open the link on your phone. Create
+          an account or sign in with the same email, then accept the invitation.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Email
+          <a href="mailto:support@ournext.uk">support@ournext.uk</a>
+          (update when the mailbox is live). For privacy questions use
+          <a href="mailto:privacy@ournext.uk">privacy@ournext.uk</a>.
+        </p>
+
+        <div class="stage" style="margin-top: 2rem">
+          <p>
+            <strong>Emergency:</strong> OurNext is not a medical service. Call
+            999 in an emergency. For urgent non-emergency health advice in the
+            UK, use NHS 111.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>© <span id="y"></span> OurNext</p>
+        <nav aria-label="Footer">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/support/" aria-current="page">Support</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script src="/assets/site.js" defer></script>
+  </body>
+</html>
