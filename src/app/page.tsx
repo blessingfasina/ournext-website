@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ObjectTile } from "@/components/ObjectTile";
 import { PhoneStage } from "@/components/PhoneStage";
+import { RevealObserver } from "@/components/RevealObserver";
 import { SiteHeader } from "@/components/SiteHeader";
 import { earlyAccessEmail, earlyAccessHref } from "@/content/site";
 import "./landing.css";
@@ -79,20 +81,11 @@ const trust = [
   },
 ];
 
-function DotMark() {
-  return (
-    <span className="lp-dotmark" aria-hidden>
-      {Array.from({ length: 9 }, (_, i) => (
-        <i key={i} />
-      ))}
-    </span>
-  );
-}
-
 export default function HomePage() {
   return (
     <>
       <SiteHeader current="home" />
+      <RevealObserver />
       <main id="main">
         <section className="wrap lp-hero" aria-labelledby="hero-title">
           <div className="lp-hero__copy">
@@ -130,7 +123,7 @@ export default function HomePage() {
         </section>
 
         <section className="lp-verbs" aria-label="What OurNext does">
-          <ul className="wrap lp-verbs__list">
+          <ul className="wrap lp-verbs__list" data-reveal="stagger">
             {verbs.map((verb) => (
               <li key={verb.title}>
                 <ObjectTile kind={verb.kind} className="tile--sm" />
@@ -143,7 +136,34 @@ export default function HomePage() {
           </ul>
         </section>
 
-        <section className="wrap lp-feature" id="how">
+        <section className="lp-story" aria-labelledby="story-title">
+          <div className="wrap lp-story__layout" data-reveal>
+            <Image
+              className="lp-story__art"
+              src="/photos/family-reunion.webp"
+              alt="An older couple hugging their grown-up son and daughter on a porch, all smiling"
+              width={1600}
+              height={1067}
+              sizes="(min-width: 900px) 560px, 100vw"
+            />
+            <div className="lp-story__copy">
+              <p className="lp-eyebrow">Why OurNext</p>
+              <h2 id="story-title" className="lp-title">
+                Looking after a parent takes more than one person
+              </h2>
+              <p className="lp-lead">
+                Appointments, lifts, prescriptions, forms. In most families it
+                all runs through one person’s memory and a group chat.
+              </p>
+              <p className="lp-lead">
+                OurNext gives everyone the same plan, so each of you can see
+                what’s covered and what still needs a hand.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="wrap lp-feature" id="how" data-reveal>
           <div className="lp-feature__copy">
             <p className="lp-eyebrow lp-eyebrow--ask">Requests</p>
             <h2 className="lp-title">Always know who said yes</h2>
@@ -169,7 +189,7 @@ export default function HomePage() {
           />
         </section>
 
-        <section className="wrap lp-feature lp-feature--flip">
+        <section className="wrap lp-feature lp-feature--flip" data-reveal>
           <div className="lp-feature__copy">
             <p className="lp-eyebrow lp-eyebrow--people">People</p>
             <h2 className="lp-title">
@@ -192,7 +212,7 @@ export default function HomePage() {
           />
         </section>
 
-        <section className="wrap lp-feature">
+        <section className="wrap lp-feature" data-reveal>
           <div className="lp-feature__copy">
             <p className="lp-eyebrow lp-eyebrow--jean">Their own screen</p>
             <h2 className="lp-title">
@@ -219,7 +239,7 @@ export default function HomePage() {
             <p className="lp-lead">
               Each person gets the view that fits what they do.
             </p>
-            <ul className="lp-roles">
+            <ul className="lp-roles" data-reveal="stagger">
               {roles.map((role) => (
                 <li key={role.title}>
                   <span className="lp-avatar" data-tone={role.tone} aria-hidden>
@@ -243,7 +263,7 @@ export default function HomePage() {
               </p>
               <Link href="/privacy">Read the privacy notice</Link>
             </div>
-            <ul className="lp-trust__points">
+            <ul className="lp-trust__points" data-reveal="stagger">
               {trust.map((point) => (
                 <li key={point.title}>
                   <h3>{point.title}</h3>
@@ -255,7 +275,7 @@ export default function HomePage() {
         </section>
 
         <section className="wrap lp-plus">
-          <div className="lp-plus__band">
+          <div className="lp-plus__band" data-reveal>
             <div>
               <h2>Coordination stays free</h2>
               <p>
@@ -271,20 +291,31 @@ export default function HomePage() {
         </section>
 
         <section className="wrap lp-early" id="early">
-          <DotMark />
-          <h2 className="lp-early__title">
-            Be first to know when OurNext is ready
-          </h2>
-          <p className="lp-lead">
-            We’re finishing the app for iPhone and Android. Send us an email
-            and we’ll write back once, when you can download it.
-          </p>
-          <a className="btn btn-primary" href={earlyAccessHref}>
-            Email us for early access
-          </a>
-          <p className="lp-note">
-            Opens your email app, addressed to {earlyAccessEmail}.
-          </p>
+          <div className="lp-early__card" data-reveal>
+            <Image
+              className="lp-early__art"
+              src="/photos/mother-daughter.webp"
+              alt="A woman holding her mother’s hand across the living room, both smiling, with tea on the table"
+              width={1600}
+              height={1067}
+              sizes="(min-width: 900px) 480px, 100vw"
+            />
+            <div className="lp-early__copy">
+              <h2 className="lp-early__title">
+                Be first to know when OurNext is ready
+              </h2>
+              <p className="lp-lead">
+                We’re finishing the app for iPhone and Android. Send us an
+                email and we’ll write back once, when you can download it.
+              </p>
+              <a className="btn btn-primary" href={earlyAccessHref}>
+                Email us for early access
+              </a>
+              <p className="lp-note">
+                Opens your email app, addressed to {earlyAccessEmail}.
+              </p>
+            </div>
+          </div>
         </section>
       </main>
     </>

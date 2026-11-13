@@ -389,46 +389,184 @@
 
 /* ——— Early access ——— */
 .lp-early {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.25rem;
-  padding-block: clamp(4rem, 9vw, 6rem) clamp(2rem, 5vw, 3rem);
+  padding-block: clamp(3.5rem, 8vw, 6rem) 0;
   scroll-margin-top: 3rem;
 }
 
+.lp-early__card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem 3.5rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: 2rem;
+  background: var(--panel);
+}
+
+.lp-early__art,
+.lp-story__art {
+  flex: 1 1 22rem;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.lp-early__copy {
+  flex: 1 1 22rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+}
+
 .lp-early__title {
-  margin: 0.5rem 0 0;
-  max-width: 45rem;
-  font-size: clamp(2.125rem, 4.4vw, 3.5rem);
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  margin: 0;
+  font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   font-weight: 650;
   text-wrap: balance;
 }
 
-.lp-early .lp-lead {
-  max-width: 32.5rem;
+/* ——— Family story ——— */
+.lp-story__layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem 3.5rem;
+  padding-block: clamp(3.5rem, 8vw, 6rem) 0;
 }
 
-.lp-early .btn {
-  margin-top: 0.5rem;
+.lp-story__copy {
+  flex: 1 1 22rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.lp-dotmark {
-  display: grid;
-  grid-template-columns: repeat(3, 0.875rem);
-  gap: 0.5rem;
+/* ——— Motion ——— */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero plays once on load, with no JavaScript needed. */
+  .lp-hero__copy > *,
+  .lp-hero .lp-stage {
+    animation: lp-rise 0.8s var(--ease) both;
+  }
+
+  .lp-hero__copy > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+  .lp-hero__copy > :nth-child(3) {
+    animation-delay: 0.16s;
+  }
+  .lp-hero__copy > :nth-child(4) {
+    animation-delay: 0.24s;
+  }
+  .lp-hero__copy > :nth-child(5) {
+    animation-delay: 0.32s;
+  }
+
+  .lp-hero .lp-stage {
+    animation-delay: 0.15s;
+  }
+
+  .lp-hero .lp-phone {
+    animation: lp-phone-up 1s var(--ease) 0.35s both;
+  }
+
+  /* Sections ease in as they scroll into view. */
+  .reveal-on [data-reveal]:not([data-reveal="stagger"]) {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease);
+  }
+
+  .reveal-on [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Lists bring their items in one after another. */
+  .reveal-on [data-reveal="stagger"] > * {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 0.6s var(--ease),
+      transform 0.6s var(--ease);
+    transition-delay: calc(var(--i, 0) * 0.1s);
+  }
+
+  .reveal-on [data-reveal="stagger"].is-in > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal] > :nth-child(2),
+  .lp-states li:nth-child(2) {
+    --i: 1;
+  }
+  [data-reveal] > :nth-child(3),
+  .lp-states li:nth-child(3) {
+    --i: 2;
+  }
+  [data-reveal] > :nth-child(4) {
+    --i: 3;
+  }
+
+  /* Phones slide up out of the grey stage. */
+  .reveal-on [data-reveal] .lp-phone {
+    transform: translateY(4rem);
+    transition: transform 0.9s var(--ease) 0.15s;
+  }
+
+  .reveal-on [data-reveal].is-in .lp-phone {
+    transform: none;
+  }
+
+  /* Needs someone, then asked, then on it: the request's journey. */
+  .reveal-on [data-reveal] .lp-states li {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+    transition:
+      opacity 0.5s var(--ease),
+      transform 0.5s var(--ease);
+    transition-delay: calc(0.4s + var(--i, 0) * 0.35s);
+  }
+
+  .reveal-on [data-reveal].is-in .lp-states li {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Photos settle in with a slight zoom. */
+  .reveal-on [data-reveal] .lp-story__art,
+  .reveal-on [data-reveal] .lp-early__art {
+    transform: scale(0.96);
+    transition: transform 1.1s var(--ease);
+  }
+
+  .reveal-on [data-reveal].is-in .lp-story__art,
+  .reveal-on [data-reveal].is-in .lp-early__art {
+    transform: none;
+  }
 }
 
-.lp-dotmark i {
-  width: 0.875rem;
-  height: 0.875rem;
-  border-radius: 50%;
-  background: var(--dot);
+@keyframes lp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
 }
 
-.lp-dotmark i:last-child {
-  background: var(--ink);
+@keyframes lp-phone-up {
+  from {
+    transform: translateY(5rem);
+  }
 }
