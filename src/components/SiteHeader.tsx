@@ -8,10 +8,10 @@ type NavKey = "home" | "privacy" | "terms" | "support";
 
 const links: { href: string; label: string; key: NavKey; priority?: boolean }[] =
   [
-    { href: "/#how", label: "How it works", key: "home", priority: true },
+    { href: "/#how", label: "How it works", key: "home" },
+    { href: "/#who", label: "Who it’s for", key: "home" },
     { href: "/privacy", label: "Privacy", key: "privacy" },
-    { href: "/terms", label: "Terms", key: "terms" },
-    { href: "/support", label: "Support", key: "support", priority: true },
+    { href: "/support", label: "Support", key: "support" },
   ];
 
 export function SiteHeader({ current }: { current?: NavKey }) {
@@ -50,11 +50,16 @@ export function SiteHeader({ current }: { current?: NavKey }) {
               key={link.href}
               href={link.href}
               className={link.priority ? "nav-priority" : undefined}
-              aria-current={current === link.key ? "page" : undefined}
+              aria-current={
+                current === link.key && current !== "home" ? "page" : undefined
+              }
             >
               {link.label}
             </Link>
           ))}
+          <Link href="/#early" className="nav-priority nav-cta">
+            Get early access
+          </Link>
         </nav>
       </div>
     </header>
