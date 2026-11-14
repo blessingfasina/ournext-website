@@ -16,6 +16,7 @@ export default function PrivacyPage() {
         <LegalDoc
           title={privacyMeta.title}
           updated={privacyMeta.updated}
+          tone="plan"
           sections={privacySections}
         />
       </main>

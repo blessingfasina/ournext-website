@@ -16,6 +16,7 @@ export default function TermsPage() {
         <LegalDoc
           title={termsMeta.title}
           updated={termsMeta.updated}
+          tone="jean"
           sections={termsSections}
         />
       </main>

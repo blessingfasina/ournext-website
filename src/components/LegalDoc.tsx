@@ -34,14 +34,18 @@ export function LegalDoc({
   title,
   updated,
   sections,
+  tone,
 }: {
   title: string;
   updated: string;
   sections: LegalSection[];
+  /** Soft card colour: blue for privacy, violet for terms. */
+  tone: "plan" | "jean";
 }) {
   return (
     <>
       <header className="page-hero">
+        <p className="page-hero__eyebrow">Legal</p>
         <h1>{title}</h1>
         <p className="meta">OurNext · Last updated {updated}</p>
         <p className="notice">
@@ -49,10 +53,15 @@ export function LegalDoc({
           advice. Have it reviewed by a qualified adviser before public launch.
         </p>
       </header>
-      <article className="prose">
-        {sections.map((section) => (
+      <article className={`prose legal-card legal-card--${tone}`}>
+        {sections.map((section, index) => (
           <section key={section.heading}>
-            <h2>{section.heading}</h2>
+            <h2>
+              <span className="legal-card__num" aria-hidden>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              {section.heading}
+            </h2>
             {section.paragraphs?.map((p) => (
               <Paragraph key={p.slice(0, 48)} text={p} />
             ))}
