@@ -9,6 +9,7 @@ export function PhoneStage({
   alt,
   height,
   dots = false,
+  tone,
   priority = false,
 }: {
   src: string;
@@ -16,10 +17,16 @@ export function PhoneStage({
   /** Intrinsic height of the 780px-wide capture. */
   height: number;
   dots?: boolean;
+  /** Soft background tint, matching the app's object colours. */
+  tone?: "plan" | "ask" | "people" | "jean";
   priority?: boolean;
 }) {
   return (
-    <div className={`lp-stage${dots ? " lp-stage--dots" : ""}`}>
+    <div
+      className={`lp-stage${dots ? " lp-stage--dots" : ""}${
+        tone ? ` lp-stage--${tone}` : ""
+      }`}
+    >
       <div className="lp-phone">
         <Image
           src={src}

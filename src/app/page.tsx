@@ -114,6 +114,7 @@ export default function HomePage() {
             </p>
           </div>
           <PhoneStage
+            tone="plan"
             src="/screens/today.png"
             height={1598}
             alt="OurNext Today screen: two requests that need someone, each with ‘I can do this’ and ‘Ask someone’ buttons"
@@ -183,6 +184,7 @@ export default function HomePage() {
             </ul>
           </div>
           <PhoneStage
+            tone="ask"
             src="/screens/asked.png"
             height={1598}
             alt="A request for a lift to a hearing aid review, showing ‘Asked Tom, waiting’"
@@ -206,6 +208,7 @@ export default function HomePage() {
             </p>
           </div>
           <PhoneStage
+            tone="people"
             src="/screens/invite.png"
             height={1350}
             alt="An invitation showing what a helper will see and won’t see before they accept"
@@ -227,6 +230,7 @@ export default function HomePage() {
             </p>
           </div>
           <PhoneStage
+            tone="jean"
             src="/screens/jean.png"
             height={1458}
             alt="A large-type screen greeting Jean, showing today’s district nurse visit and who will be there"
@@ -241,8 +245,8 @@ export default function HomePage() {
             </p>
             <ul className="lp-roles" data-reveal="stagger">
               {roles.map((role) => (
-                <li key={role.title}>
-                  <span className="lp-avatar" data-tone={role.tone} aria-hidden>
+                <li key={role.title} data-tone={role.tone}>
+                  <span className="lp-avatar" aria-hidden>
                     {role.initials}
                   </span>
                   <h3>{role.title}</h3>

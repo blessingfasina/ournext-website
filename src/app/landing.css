@@ -70,6 +70,21 @@
   background-position: 17px 17px;
 }
 
+/* Each stage takes the soft tint of the thing it shows. */
+.lp-stage--plan {
+  background-color: #eaf1ff;
+  --dot: #c3d5ff;
+}
+.lp-stage--ask {
+  background-color: #ffefe6;
+}
+.lp-stage--people {
+  background-color: #ffe8ef;
+}
+.lp-stage--jean {
+  background-color: #eeeafe;
+}
+
 .lp-phone {
   width: 300px;
   max-width: 100%;
@@ -117,7 +132,7 @@
 }
 
 .lp-hero__title span {
-  color: var(--ink2);
+  color: var(--plan);
 }
 
 .lp-hero__lead {
@@ -227,7 +242,7 @@
 .lp-who {
   margin-top: clamp(4rem, 9vw, 6.5rem);
   padding-block: clamp(3.5rem, 8vw, 6rem);
-  background: var(--panel);
+  border-top: 1px solid var(--line);
   scroll-margin-top: 3rem;
 }
 
@@ -245,7 +260,7 @@
 }
 
 .lp-roles li {
-  background: var(--paper);
+  background: var(--panel);
   border-radius: 1.5rem;
   padding: 1.75rem;
 }
@@ -269,25 +284,25 @@
   display: grid;
   place-items: center;
   font-weight: 600;
-  background: var(--panel2);
+  background: var(--paper);
 }
 
-.lp-avatar[data-tone="jean"] {
-  background: #e4e0fd;
+.lp-roles li[data-tone="jean"] {
+  background: #eeeafe;
 }
-.lp-avatar[data-tone="plan"] {
-  background: #dce8ff;
+.lp-roles li[data-tone="plan"] {
+  background: #eaf1ff;
 }
-.lp-avatar[data-tone="ask"] {
-  background: #ffe3d2;
+.lp-roles li[data-tone="ask"] {
+  background: #ffefe6;
 }
-.lp-avatar[data-tone="update"] {
-  background: #d8f1e3;
+.lp-roles li[data-tone="update"] {
+  background: #e6f6ec;
 }
 
 /* ——— Trust ——— */
 .lp-trust {
-  background: var(--ink);
+  background: #0f1f3d;
   color: var(--paper);
   padding-block: clamp(3.5rem, 8vw, 6rem);
 }
@@ -309,7 +324,7 @@
 
 .lp-trust .lp-lead,
 .lp-trust__points p {
-  color: #b9bbc2;
+  color: #c2ccde;
 }
 
 .lp-trust a {
@@ -319,7 +334,7 @@
 }
 
 .lp-trust a:hover {
-  color: #b9bbc2;
+  color: #c2ccde;
 }
 
 .lp-trust :focus-visible {
@@ -338,7 +353,7 @@
 }
 
 .lp-trust__points li {
-  border-top: 1px solid #3a3d44;
+  border-top: 1px solid #2e4068;
   padding-top: 1.25rem;
 }
 
