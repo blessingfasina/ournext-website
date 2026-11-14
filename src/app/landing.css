@@ -145,16 +145,16 @@
 
 /* ——— Know / Ask / Share ——— */
 .lp-verbs {
-  border-block: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .lp-verbs__list {
   list-style: none;
   margin-block: 0;
-  padding: 3rem 0;
+  padding: 3rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem 2.5rem;
+  gap: 1rem;
 }
 
 .lp-verbs__list li {
@@ -163,6 +163,19 @@
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+/* Know is blue, Ask is orange, Share is green, like their tiles. */
+.lp-verbs__list li:nth-child(1) {
+  background: #eaf1ff;
+}
+.lp-verbs__list li:nth-child(2) {
+  background: #ffefe6;
+}
+.lp-verbs__list li:nth-child(3) {
+  background: #e6f6ec;
 }
 
 .lp-verbs__list h2 {
@@ -378,9 +391,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem 3rem;
-  border: 1px solid var(--line);
   border-radius: 2rem;
   padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: #e6f6ec;
+}
+
+.lp-plus__band .btn-quiet {
+  background: var(--paper);
 }
 
 .lp-plus__band > div {
@@ -415,7 +432,7 @@
   gap: 2rem 3.5rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   border-radius: 2rem;
-  background: var(--panel);
+  background: #eaf1ff;
 }
 
 .lp-early__art,
@@ -454,7 +471,13 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 2rem 3.5rem;
-  padding-block: clamp(3.5rem, 8vw, 6rem) 0;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+/* A warm band behind the family photo. */
+.lp-story {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  background: #fff6ee;
 }
 
 .lp-story__copy {
